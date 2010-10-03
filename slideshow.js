@@ -46,7 +46,7 @@ $(document).ready(function() {
 	 */
 	$('#stop_button').click(function(e) {
 		e.preventDefault();
-		clearInterval(intervalID);
+		stop_slideshow();
 	});
 
 	/*
