@@ -4,6 +4,7 @@
 */
 
 $(document).ready(function() {
+	var albums_dir = 'albums/';
 
 	// 2 second delay
 	var delay = 2000;
@@ -11,7 +12,8 @@ $(document).ready(function() {
 	$('#button').click(function(e) {
 		e.preventDefault();
 
-		var gallery = "testgallery";
+		// gallery is the selected one
+		var gallery = $("#dropdown :selected").text();
 
 		// get list of images from images.php
 		$.get(
@@ -41,7 +43,7 @@ $(document).ready(function() {
 			setTimeout(
 				function(x) {
 					return function() {
-						change_image(gallery + "/" + images[x])
+						change_image(albums_dir + gallery + "/" + images[x])
 					};}(i),
 				actual_delay
 			);
