@@ -1,14 +1,15 @@
-/*
-	assumes all gallerys are relative to cwd
-	see change_image() call to change this
-*/
-
 $(document).ready(function() {
 	var albums_dir = 'albums/';
+
+	// holds timer associated with running slideshow
+	var intervalID;
 
 	// 2 second delay
 	var delay = 2000;
 
+	/*
+	 * start button clicked
+	 */
 	$('#button').click(function(e) {
 		e.preventDefault();
 
@@ -23,19 +24,39 @@ $(document).ready(function() {
 			},
 			function (data) {
 				var images = JSON.parse(data);
-				slideshow(gallery, images);
+
+				// repeatedly call slideshow every delay
+				intervalID = setInterval(
+					function() {
+						slideshow(gallery, images)
+					}, 2000
+				);
 			}
 		);
 	});
 
-	// switch a single image
-	function change_image (image) {
+	/*
+	 * switch a single image
+	 */
+	function change_image(image) {
 		$('#image').attr('src', image);
 		$('#msg').html($('#msg').html() + "Loading image: " + image + "<br>");
 	}
 
-	// loop through images array setting up calls to change images
-	function slideshow (gallery, images) {
+	/*
+	 * select a random image and display
+	 */
+	function slideshow(gallery, images) {
+		// choose a random image
+		var i = Math.floor(Math.random() * (images.length-1));
+		change_image(albums_dir + gallery + "/" + images[i])
+	}
+
+	/*
+	 * loop through images array setting up calls to change images
+	 * sequential.
+	 */
+	function slideshow_seq(gallery, images) {
 		for (var i = 0; i < images.length; i++) {
 			$('#msg').html($('#msg').html() + images[i] + ", ");
 
@@ -50,5 +71,4 @@ $(document).ready(function() {
 		}
 		$('#msg').html($('#msg').html() + '<br>');
 	}
-
 });
