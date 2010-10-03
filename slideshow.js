@@ -1,20 +1,24 @@
 $(document).ready(function() {
+	// relative path to albums directory. should match config.php
 	var albums_dir = 'albums/';
+
+	var default_image = "default.jpg";
 
 	// holds timer associated with running slideshow
 	var intervalID;
 
-	// 2 second delay
-	var delay = 2000;
-
 	/*
 	 * start button clicked
 	 */
-	$('#button').click(function(e) {
+	$('#start_button').click(function(e) {
 		e.preventDefault();
 
-		// gallery is the selected one
+		// first stop any running slideshow
+		clearInterval(intervalID);
+
+		// gallery & delay choice from dropdowns
 		var gallery = $("#dropdown :selected").text();
+		var delay = $("#time_choice :selected").val();
 
 		// get list of images from images.php
 		$.get(
@@ -25,22 +29,41 @@ $(document).ready(function() {
 			function (data) {
 				var images = JSON.parse(data);
 
+				// display first image immediately
+				slideshow(gallery, images);
 				// repeatedly call slideshow every delay
 				intervalID = setInterval(
 					function() {
 						slideshow(gallery, images)
-					}, 2000
+					}, delay * 1000
 				);
 			}
 		);
 	});
 
 	/*
+	 * stop button clicked
+	 */
+	$('#stop_button').click(function(e) {
+		e.preventDefault();
+		clearInterval(intervalID);
+	});
+
+	/*
+	 * stop slideshow & display default
+	 */
+	function stop_slideshow() {
+		clearInterval(intervalID);
+		change_image(default_image);
+	}
+
+	/*
 	 * switch a single image
 	 */
 	function change_image(image) {
 		$('#image').attr('src', image);
-		$('#msg').html($('#msg').html() + "Loading image: " + image + "<br>");
+		// add a message saying the filename
+		//$('#msg').html($('#msg').html() + "Loading image: " + image + "<br>");
 	}
 
 	/*

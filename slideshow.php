@@ -20,10 +20,19 @@ foreach ($files as $file) {
 }
 ?>
 </select>
-<div id="button"><a href="start">start</a></div>
 
-<img id="image" src="">
-<div id="msg">Ready<br></div>
+<select id="time_choice" name="time_choice">
+<option value="30">30 seconds</option>
+<option value="60">1 minute</option>
+<option value="180">3 minutes</option>
+<option value="300">5 minutes</option>
+</select>
+
+<div id="start_button"><a href="start">Start</a></div>
+<div id="stop_button"><a href="stop">Stop</a></div>
+
+<img id="image" src="default.jpg">
+<div id="msg"></div>
 
 </body>
 </html>

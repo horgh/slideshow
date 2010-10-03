@@ -1,3 +1,5 @@
--precache images+indicator for done
--filter for correct filetypes
--filter for acceptable paths/galleries
+- precache images+indicator for done
+- filter for correct filetypes (images.php)
+- filter for acceptable paths/galleries (images.php)
+	- this could be a security issue as is!
+- error handling in util.php: get_files

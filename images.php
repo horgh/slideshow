@@ -1,12 +1,8 @@
 <?
 /*
-attempts to read directory cwd + $_GET['album'] for files
+ * attempts to read directory cwd + $_GET['album'] for files
+ */
 
-TODO:
- - limit to only image files
- - use hardcoded file for acceptable images rather than any $_GET['album'] so
-   as to avoid potential security issue
-*/
 require_once("util.php");
 require_once("config.php");
 
