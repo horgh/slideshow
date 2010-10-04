@@ -29,8 +29,8 @@ foreach ($files as $file) {
 <option value="3">3 seconds</option>
 </select>
 
-<div id="start_button"><a href="start">Start</a></div>
-<div id="stop_button"><a href="stop">Stop</a></div>
+<div id="start_button"><a href="#start">Start</a></div>
+<div id="stop_button"><a href="#stop">Stop</a></div>
 
 <img id="image" src="default.jpg">
 <div id="msg"></div>

@@ -10,11 +10,16 @@ $(document).ready(function() {
 	// index of last seen
 	var last_index = -1;
 
+	// hide stop button
+	$('#stop_button').hide();
+
 	/*
 	 * start button clicked
 	 */
 	$('#start_button').click(function(e) {
 		e.preventDefault();
+		$('#start_button').hide();
+		$('#stop_button').show();
 
 		last_index = -1;
 		// first stop any running slideshow
@@ -59,6 +64,8 @@ $(document).ready(function() {
 	function stop_slideshow() {
 		clearInterval(intervalID);
 		change_image(default_image);
+		$('#stop_button').hide();
+		$('#start_button').show();
 	}
 
 	/*
