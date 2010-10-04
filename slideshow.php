@@ -26,6 +26,7 @@ foreach ($files as $file) {
 <option value="60">1 minute</option>
 <option value="180">3 minutes</option>
 <option value="300">5 minutes</option>
+<option value="3">3 seconds</option>
 </select>
 
 <div id="start_button"><a href="start">Start</a></div>

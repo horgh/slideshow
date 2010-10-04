@@ -2,7 +2,7 @@ $(document).ready(function() {
 	// relative path to albums directory. should match config.php
 	var albums_dir = 'albums/';
 
-	var default_image = "default.jpg";
+	var default_image = 'default.jpg';
 
 	// holds timer associated with running slideshow
 	var intervalID;
@@ -71,7 +71,7 @@ $(document).ready(function() {
 	 */
 	function slideshow(gallery, images) {
 		// choose a random image
-		var i = Math.floor(Math.random() * (images.length-1));
+		var i = Math.floor(Math.random() * images.length);
 		change_image(albums_dir + gallery + "/" + images[i])
 	}
 
