@@ -17,7 +17,9 @@ if (isset($_GET['album'])) {
 	// read list of filenames into array from dir
 	$files = get_files($dir);
 	//print_r($files);
-	$json = json_encode($files);
+	//$json = json_encode($files);
+	$json = array_to_csv($files);
+	$json = trim($json, ",");
 	print($json);
 }
 ?>

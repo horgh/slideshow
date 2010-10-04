@@ -36,7 +36,8 @@ $(document).ready(function() {
 				album: gallery
 			},
 			function (data) {
-				var images = JSON.parse(data);
+				//var images = JSON.parse(data);
+				var images = data.split(",");
 
 				// display first image immediately
 				slideshow(gallery, images);

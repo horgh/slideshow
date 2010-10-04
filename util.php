@@ -15,4 +15,16 @@ function get_files($dir) {
 	closedir($handle);
 	return $files;
 }
+
+/*
+ * take an array of string and return string
+ * e.g.
+ */ 
+function array_to_csv($arr) {
+	$str = "";
+	foreach ($arr as $s) {
+		$str .= $s . ',';
+	}
+	return $str;
+}
 ?>
