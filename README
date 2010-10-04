@@ -1,0 +1,8 @@
+This will look for albums of images in a directory ("albums" by default). An
+album is a directory inside this albums directory.
+
+It is assumed all the files in these found album directories are images.
+
+The directory searched is set in config.php and "albums_dir" in slideshow.js
+
+The default image is set in slideshow.php and "default_image" in slideshow.js
