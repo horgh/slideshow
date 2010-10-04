@@ -7,12 +7,16 @@ $(document).ready(function() {
 	// holds timer associated with running slideshow
 	var intervalID;
 
+	// index of last seen
+	var last_index = -1;
+
 	/*
 	 * start button clicked
 	 */
 	$('#start_button').click(function(e) {
 		e.preventDefault();
 
+		last_index = -1;
 		// first stop any running slideshow
 		clearInterval(intervalID);
 
@@ -71,8 +75,13 @@ $(document).ready(function() {
 	 */
 	function slideshow(gallery, images) {
 		// choose a random image
-		var i = Math.floor(Math.random() * images.length);
+		var i = -1;
+		// get a new random index if i unset or found is same as previously displayed
+		while (i == -1 || i == last_index) {
+			i = Math.floor(Math.random() * images.length);
+		}
 		change_image(albums_dir + gallery + "/" + images[i])
+		last_index = i;
 	}
 
 	/*
