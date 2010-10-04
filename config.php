@@ -1,6 +1,4 @@
 <?
-class config {
-	// this also needs to be set in slideshow.js...
-	const ALBUMS_DIR = "albums";
-}
+// this also needs to be set in slideshow.js...
+$ALBUMS_DIR = "albums";
 ?>

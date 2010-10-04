@@ -7,7 +7,7 @@ require_once("util.php");
 require_once("config.php");
 
 if (isset($_GET['album'])) {
-	$dir = config::ALBUMS_DIR . '/' . $_GET['album'];
+	$dir = $ALBUMS_DIR . '/' . $_GET['album'];
 	// make sure directory actually exists...
 	if (!is_dir($dir)) {
 		print("Directory doesn't exist!\n");
@@ -15,7 +15,7 @@ if (isset($_GET['album'])) {
 	}
 
 	// read list of filenames into array from dir
-	$files = util::get_files($dir);
+	$files = get_files($dir);
 	//print_r($files);
 	$json = json_encode($files);
 	print($json);

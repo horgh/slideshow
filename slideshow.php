@@ -14,7 +14,7 @@ require_once("util.php");
 
 <select id="dropdown" name="dropdown">
 <?
-$files = util::get_files(config::ALBUMS_DIR);
+$files = get_files($ALBUMS_DIR);
 foreach ($files as $file) {
 	print('<option value="' . $file . '">' . $file . '</option>');
 }
